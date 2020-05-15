@@ -57,9 +57,9 @@ public class FractalExplorer {
          * Добавляем объект отображения изображения в позицию BorderLayout.CENTER
          */
         display.setLayout(new BorderLayout());
-        JFrame myFrame = new JFrame("Fractal Explorer");
+        JFrame myframe = new JFrame("Fractal Explorer");
 
-        myFrame.add(display, BorderLayout.CENTER);
+        myframe.add(display, BorderLayout.CENTER);
 
         /** Создание кнопки сброса. */
         JButton resetButton = new JButton("Reset");
@@ -73,42 +73,42 @@ public class FractalExplorer {
         display.addMouseListener(click);
 
         /** Операция закрытия окна по умолчанию */
-        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        myframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         /** поле со списком. */
-        JComboBox myComboBox = new JComboBox();
+        JComboBox Cb = new JComboBox();
 
         /** Добавление каждого объекта фрактального типа в поле со списком. */
-        FractalGenerator mandelbrotFractal = new Mandelbrot();
-        myComboBox.addItem(mandelbrotFractal);
-        FractalGenerator tricornFractal = new Tricorn();
-        myComboBox.addItem(tricornFractal);
-        FractalGenerator burningShipFractal = new BurningShip();
-        myComboBox.addItem(burningShipFractal);
+        FractalGenerator mandelbrotFr = new Mandelbrot();
+        Cb.addItem(mandelbrotFr);
+        FractalGenerator tricornFr = new Tricorn();
+        Cb.addItem(tricornFr);
+        FractalGenerator burningShipFr = new BurningShip();
+        Cb.addItem(burningShipFr);
 
         /** Экземпляр ButtonHandler в поле со списком. */
-        ButtonHandler fractalChooser = new ButtonHandler();
-        myComboBox.addActionListener(fractalChooser);
+        ButtonHandler FrCh = new ButtonHandler();
+        Cb.addActionListener(FrCh);
 
         /**
          * Создает новые объекты JPanel, JLabel, JComboBox, и добавляет
          * панель в кадр в положении NORTH.
          */
-        JPanel myPanel = new JPanel();
-        JLabel myLabel = new JLabel("Fractal:");
-        myPanel.add(myLabel);
-        myPanel.add(myComboBox);
-        myFrame.add(myPanel, BorderLayout.NORTH);
+        JPanel newPanel = new JPanel();
+        JLabel newLabel = new JLabel("Fractal:");
+        newPanel.add(newLabel);
+        newPanel.add(Cb);
+        myframe.add(newPanel, BorderLayout.NORTH);
 
         /**
          * Создание кнопки сохранения, добавление кнопки в JPanel в положение
          * BorderLayout.SOUTH вместе с кнопкой reset.
          */
         JButton saveButton = new JButton("Save");
-        JPanel myBottomPanel = new JPanel();
-        myBottomPanel.add(saveButton);
-        myBottomPanel.add(resetButton);
-        myFrame.add(myBottomPanel, BorderLayout.SOUTH);
+        JPanel BtmPanel = new JPanel();
+        BtmPanel.add(saveButton);
+        BtmPanel.add(resetButton);
+        myframe.add(BtmPanel, BorderLayout.SOUTH);
 
         /** Экземпляр ButtonHandler для кнопки сохранения. */
         ButtonHandler saveHandler = new ButtonHandler();
@@ -118,9 +118,9 @@ public class FractalExplorer {
          *Данные операции правильно разместят содержимое окна, сделают его
          * видимым и запретят изменение размеров окна
          */
-        myFrame.pack();
-        myFrame.setVisible(true);
-        myFrame.setResizable(false);
+        myframe.pack();
+        myframe.setVisible(true);
+        myframe.setResizable(false);
 
     }
 
